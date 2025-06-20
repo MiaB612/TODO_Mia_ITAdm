@@ -86,7 +86,40 @@ mark_task_done() {
     echo " Úkol č. $index označen jako dokončený."
 }
 
-#
+# Funkce smaže úkol podle čísla
+delete_task() {
+    if [[ ! -s "$TASK_FILE" ]]; then
+        echo "🤷‍♀️ Žádné úkoly ke smazání."
+        return
+    fi
+
+    show_tasks
+    read -p "Zadej číslo úkolu, který chceš smazat: " index
+
+    if ! [[ "$index" =~ ^[0-9]+$ ]]; then
+        echo "❌ Neplatné číslo."
+        return
+    fi
+
+    total=$(wc -l < "$TASK_FILE")
+    if (( index < 1 || index > total )); then
+        echo "🚫 Úkol s tímto číslem neexistuje."
+        return
+    fi
+
+    tmp_file=$(mktemp)
+    line_num=1
+
+    while IFS= read -r line; do
+        if [[ $line_num -ne $index ]]; then
+            echo "$line" >> "$tmp_file"
+        fi
+        ((line_num++))
+    done < "$TASK_FILE"
+
+    mv "$tmp_file" "$TASK_FILE"
+    echo "🗑️ Úkol č. $index byl smazán."
+}
 
 # Hlavní smyčka programu (vytvořím funkci pro smycku)
 main_loop() {
@@ -97,7 +130,7 @@ main_loop() {
             1) show_tasks ;;
             2) add_task ;;
             3) mark_task_done ;;
-            4) echo "Funkce: smazat úkol (zatím neimplementováno)" ;;
+            4) delete_task ;;
             5) echo "Ukončuji..."; break ;;
             *) echo "Neplatná volba, zkus znovu." ;;
         esac
