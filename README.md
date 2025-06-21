@@ -7,7 +7,8 @@ Easy, přehledné a použitelné pro každého, kdo takovou aplikaci potřebuje.
 Její funkce jsou    - 📋 zobrazit všechny úkoly
                     - 📝 přidat nový úkol
                     - ✅ označit úkol jako dokončený
-                    - 🗑️ smažat úkol
+                    - 🗑️ smazat úkol
+                    - 🚀 exportovat do Markdown
                     - 🌈 barevně rozlišit
 
 # Spuštění 
@@ -15,12 +16,11 @@ Musíš mít Bash (v Linuxu,macOS, Windows - WSL)
 Pusť skript v terminálu: bash Taskmaster.sh
 
 # Ukládání
-Úkoly se ukládají do textového souboru tasks.txt ve stejném adresáři, jako je skript
+Úkoly se ukládají do textového souboru tasks.txt a nebo se mohou exportovat do task.md ve stejném adresáři, jako je skript
 
 # Licence
 ToDo je open-source a volně použitelný.
 
 # Plány pro vylepšení
-Přidání filtrů pro zobrazení
-Možnost exportu jako TXT nebo HTML
-Přidání datumu vytvoření úkolu
+Přidání filtrů pro zobrazení;
+Přidání datumu vytvoření úkolu;
