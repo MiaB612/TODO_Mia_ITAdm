@@ -2,11 +2,11 @@
 
 export_to_md() {
     if [[ ! -s "$TASK_FILE" ]]; then
-        echo -e "${YELLOW}🤷‍♀️ Žádné úkoly k exportu.${NC}"
+        echo -e "${YELLOW}⚠️  Žádné úkoly k exportu.${NC}"
         return
     fi
-
-    MD_FILE="tasks.md"
+# přidání času
+     MD_FILE="tasks_$(date +%Y%m%d_%H%M%S).md"  
 
     {
         echo "# Seznam úkolů"
@@ -19,5 +19,5 @@ export_to_md() {
         done < "$TASK_FILE"
     } > "$MD_FILE"
 
-    echo -e "${GREEN}✅  Úkoly byly exportovány do souboru ${MD_FILE}.${NC}"
+    echo -e "${GREEN}✅  Úkoly byly exportovány do souboru:${NC} $(pwd)/$MD_FILE"
 }
