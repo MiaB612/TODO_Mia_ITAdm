@@ -1,2 +1,16 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Shell skripty – vynutit LF konce řádků (Unix styl)
+*.sh text eol=lf
+
+# Markdown – jako čistý text, LF řádky
+*.md text eol=lf
+
+# Bash barevné schéma nebo konfigurace (pokud nějaké máš)
+*.bashrc text eol=lf
+
+# Binární soubory – nenechat Git řešit diff/merge
+*.png binary
+*.jpg binary
+*.pdf binary
