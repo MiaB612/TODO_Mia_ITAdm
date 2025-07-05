@@ -29,8 +29,9 @@ show_tasks() {
         return
     fi
 
-    echo -e "${GREEN}${BOLD}📋  Seznam úkolů:${NC}"
-    echo -e "${GREEN}-----------------${NC}"
+    echo -e "${CYAN}${BOLD}📋  Seznam úkolů:${NC}"
+    echo -e "${CYAN}-----------------${NC}"
+    echo
 
     local i=1
     while IFS= read -r line; do
@@ -61,7 +62,8 @@ mark_task_done() {
     fi
 
     show_tasks
-    read -p "$(echo -e "${${GREEN}${BOLD}🔢  Zadej číslo úkolu, který je hotový:${NC} ")" index
+   read -p "$(echo -e "${GREEN}${BOLD}🔢  Zadej číslo úkolu, který je hotový:${NC} ")" index
+
 
     if ! [[ "$index" =~ ^[0-9]+$ ]]; then
         echo -e "${RED}❌  Neplatné číslo.${NC}"
