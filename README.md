@@ -12,8 +12,9 @@ Její funkce jsou    - 📋 zobrazit všechny úkoly
                     - 🌈 barevně rozlišit
 
 # Spuštění 
-Je třeba mít Bash (v Linuxu, macOS, Windows - WSL)
-Pouštění skriptu v terminálu: bash Taskmaster.sh
+Je třeba mít Bash shell (v Linuxu, macOS, Windows - WSL)
+Spustit skript příkazem: bash Taskmaster.sh
+Řídit se dle menu a zadávat volby 1 - 6.
 
 # Ukládání
 Úkoly se ukládají do textového souboru tasks.txt ve stejném adresáři, jako je skript
